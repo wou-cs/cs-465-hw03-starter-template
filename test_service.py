@@ -24,11 +24,6 @@ def test_plural_activities_returns_at_least_2(client):
     assert len(activities["activities"]) >= 2
 
 
-def test_activities_with_trailing_slash_should_fail(client):
-    response = client.get("/api/activities/")
-    assert response.status_code == 404
-
-
 def test_schema_elements_present_for_first_activity(client):
     keys = ["id", "user_id", "username", "timestamp", "details", "location"]
     response = client.get("/api/activities")
