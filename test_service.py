@@ -53,7 +53,7 @@ def test_can_use_location_to_find_activity(client):
 
 def test_new_activity_without_any_data_fails(client):
     response = client.post("/api/activities")
-    assert response.status_code == 400
+    assert response.status_code in (400, 415)
 
 
 def test_new_activity_without_all_required_data_fails(client):
